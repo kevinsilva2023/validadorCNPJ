@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo_favicon_64.ico">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Consulta CNPJ | Kevin Silva</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Informe o CNPJ</h1>
+        <div class="container-input">
+            <input id="cnpj" onkeyup="document.getElementById('validation').innerHTML = validaCNPJ(this.value)">
+            <!-- <input type="text" id="cnpj" autocomplete="off" maxlength="18" placeholder="Digite seu CNPJ.."> -->
+            <label for="cnpj"></label>
+            <input type="button" class="container-input-buttom" value="Buscar" onclick="consultarCNPJ(cnpj)">
+        </div>
+        <div class="resultado-validação">
+            <span id="validation"></span>
+        </div>
+    </div>
+
+    <!-- mascarando o cnpj com  -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <script>
+        new Cleave('#cnpj', {
+            blocks: [2, 3, 3, 4, 2],
+            delimiters: ['.', '.', '/', '-'],
+            numericOnly: true
+    });
+    </script>
+    
+    <!-- minha validação -->
+    <script src="script.js"></script>
+</body>
+</html>
